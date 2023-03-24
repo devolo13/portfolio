@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous"> <!-- BOOTSTRAP STYLESHEET -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"> <!-- BOOTSTRAP ICONS -->
+  <link rel="stylesheet" href="style.css"> <!-- MY CUSTOM CSS POTENTIALLY UNNECESSARY -->
+  <title>Devin Lozano's Portfolio</title>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary shadow">
+    <div class="container-fluid">
+      <span class="navbar-brand">Portfolio</span>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://devolo13.com/" target="_blank">Personal Website</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/devolo13" target="_blank">GitHub</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Previous Projects
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="https://devolo13.github.io/CodeIt/" target="_blank">Bad Website</a></li>
+              <li><a class="dropdown-item" href="https://devolo13.github.io/dojoweather/" target="_blank">Terrible Website</a></li>
+              <li><a class="dropdown-item" href="https://devolo13.github.io/profile_page/" target="_blank">Even Worse Website</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="https://youtu.be/dQw4w9WgXcQ" target="_blank">Please Don't Click This</a></li>
+            </ul>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <button type="button" class="btn" onclick="themeToggle(this)"><i class="bi bi-brightness-high-fill"></i></button>
+        </form>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <!-- MAIN CONTENT HERE -->
+    <!-- GRID SHINANIGANS -->
+    <div class="row mt-4">
+      <div class="col-lg-4 col-sm-12">
+        <div class="card shadow">
+          <div class="card-body">
+            <img src="resources/placeholder.jpg" alt="placeholder profile pic" class="img-thumbnail">
+            <h3 class="card-title">Devin Lozano</h3>
+            <h5 class="card-subtitle mb-2 text-body-secondary">Software Developer</h5>
+            <p>coder mans</p>
+            <p>i do the codes</p>
+            <p>basically live in the matrix</p>
+            <a href="mailto:devolo13@gmail.com" target="_blank">Contact me</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8 col-sm-12">
+        <div class="card shadow mb-4">
+          <h3 class="card-header">Skills</h3>
+          <div class="card-body">
+            <ul class="list-group-flush">
+              <li class="list-group-item">HTML</li>
+              <li class="list-group-item">CSS</li>
+              <li class="list-group-item">JavaScript</li>
+              <li class="list-group-item">Terminal</li>
+              <li class="list-group-item">General Linux</li>
+              <li class="list-group-item">Made a sandwich once</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card shadow mb-4">
+          <h3 class="card-header">Currently Learning</h3>
+          <div class="card-body">
+            <ul class="list-group-flush">
+              <li class="list-group-item">SASS</li>
+              <li class="list-group-item">Bootstrap</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card shadow mb-4">
+          <h3 class="card-header">Education & Experience</h3>
+          <div class="card-body">
+            <ul class="list-group-flush">
+              <li class="list-group-item">Associates of Pre-Engineering</li>
+              <li class="list-group-item">18 black belts from Coding Dojo</li>
+              <li class="list-group-item">Years of tinkering</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+  <script src="script.js"></script> <!-- MY CUSTOM SCRIPT USED FOR DARK MODE TOGGLE -->
+</body>
+</html>
