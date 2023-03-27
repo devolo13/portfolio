@@ -1,26 +1,42 @@
 // Use sessionStorage for theme cookie
 // current code wouldn't work. need to parse info returned from .getItem
+var userTheme = '';
+retrieveSessionStorage();
+initializeTheme();
 
-if (window.sessionStorage.getItem(theme) == undefined) {
-  window.sessionStorage.setItem('theme', 'dark');
+function retrieveSessionStorage() {
+  // retrieve and parse sessionStorage. then set userTheme and return currentTheme
+  userTheme = '';
+  return currentTheme;
 }
 
-if (window.sessionStorage.getItem(theme) === 'dark') {
-  document.documentElement.setAttribute('data-bs-theme', 'dark');
-  element.innerHTML = '<i class="bi bi-brightness-high-fill"></i>';
-} else {
-  document.documentElement.setAttribute('data-bs-theme', 'light');
-  element.innerHTML = '<i class="bi bi-brightness-alt-high-fill"></i>';
+function setSessionStorage(currentTheme) {
+  // push currentTheme to sessionStorage
+  userTheme = currentTheme;
+}
+
+function initializeTheme() {
+  // element will not work here because it's not being called from HTML
+  if (userTheme === 'light') {
+    document.documentElement.setAttribute('data-bs-theme', 'light');
+    element.innerHTML = '<i class="bi bi-brightness-alt-high-fill"></i>';
+  } else {
+    userTheme = 'dark';
+    setSessionStorage(userTheme);
+    document.documentElement.setAttribute('data-bs-theme', 'dark');
+    element.innerHTML = '<i class="bi bi-brightness-high-fill"></i>';
+  }
 }
 
 function themeToggle(element) {
-  if (document.documentElement.getAttribute('data-bs-theme') == 'dark') {
+  var theme = retrieveSessionStorage();
+  if (theme == 'dark') {
     document.documentElement.setAttribute('data-bs-theme', 'light');
     element.innerHTML = '<i class="bi bi-brightness-alt-high-fill"></i>';
-    window.sessionStorage.setItem('theme', 'light');
+    setSessionStorage('dark');
   } else {
     document.documentElement.setAttribute('data-bs-theme', 'dark');
     element.innerHTML = '<i class="bi bi-brightness-high-fill"></i>';
-    window.sessionStorage.setItem('theme', 'dark');
+    setSessionStorage('light');
   }
 }
