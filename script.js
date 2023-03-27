@@ -2,11 +2,6 @@
 var userTheme = '';
 initializeTheme();
 
-function retrieveSessionStorage() {
-  userTheme = sessionStorage.getItem('theme');
-  return userTheme;
-}
-
 function setSessionStorage(currentTheme) {
   userTheme = currentTheme;
   sessionStorage.setItem('theme', userTheme);
@@ -18,15 +13,14 @@ function initializeTheme() {
     document.documentElement.setAttribute('data-bs-theme', 'light');
     document.getElementById('themeButton').innerHTML = '<i class="bi bi-brightness-alt-high-fill"></i>';
   } else {
-    userTheme = 'dark';
-    setSessionStorage('theme', userTheme);
+    setSessionStorage('dark');
     document.documentElement.setAttribute('data-bs-theme', 'dark');
     document.getElementById('themeButton').innerHTML = '<i class="bi bi-brightness-high-fill"></i>';
   }
 }
 
 function themeToggle(element) {
-  retrieveSessionStorage();
+  userTheme = sessionStorage.getItem('theme');
   if (userTheme == 'dark') {
     document.documentElement.setAttribute('data-bs-theme', 'light');
     element.innerHTML = '<i class="bi bi-brightness-alt-high-fill"></i>';
