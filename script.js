@@ -1,42 +1,39 @@
 // Use sessionStorage for theme cookie
-// current code wouldn't work. need to parse info returned from .getItem
 var userTheme = '';
-retrieveSessionStorage();
 initializeTheme();
 
 function retrieveSessionStorage() {
-  // retrieve and parse sessionStorage. then set userTheme and return currentTheme
-  userTheme = '';
-  return currentTheme;
+  userTheme = sessionStorage.getItem('theme');
+  return userTheme;
 }
 
 function setSessionStorage(currentTheme) {
-  // push currentTheme to sessionStorage
   userTheme = currentTheme;
+  sessionStorage.setItem('theme', userTheme);
 }
 
 function initializeTheme() {
-  // element will not work here because it's not being called from HTML
+  userTheme = sessionStorage.getItem('theme');
   if (userTheme === 'light') {
     document.documentElement.setAttribute('data-bs-theme', 'light');
-    element.innerHTML = '<i class="bi bi-brightness-alt-high-fill"></i>';
+    document.getElementById('themeButton').innerHTML = '<i class="bi bi-brightness-alt-high-fill"></i>';
   } else {
     userTheme = 'dark';
-    setSessionStorage(userTheme);
+    setSessionStorage('theme', userTheme);
     document.documentElement.setAttribute('data-bs-theme', 'dark');
-    element.innerHTML = '<i class="bi bi-brightness-high-fill"></i>';
+    document.getElementById('themeButton').innerHTML = '<i class="bi bi-brightness-high-fill"></i>';
   }
 }
 
 function themeToggle(element) {
-  var theme = retrieveSessionStorage();
-  if (theme == 'dark') {
+  retrieveSessionStorage();
+  if (userTheme == 'dark') {
     document.documentElement.setAttribute('data-bs-theme', 'light');
     element.innerHTML = '<i class="bi bi-brightness-alt-high-fill"></i>';
-    setSessionStorage('dark');
+    setSessionStorage('light');
   } else {
     document.documentElement.setAttribute('data-bs-theme', 'dark');
     element.innerHTML = '<i class="bi bi-brightness-high-fill"></i>';
-    setSessionStorage('light');
+    setSessionStorage('dark');
   }
 }
