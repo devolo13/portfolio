@@ -9,6 +9,8 @@ let score_2 = document.querySelector('.pScore');
 let message = document.querySelector('.popup');
 let paddle_1_coord = paddle_1.getBoundingClientRect();
 let paddle_2_coord = paddle_2.getBoundingClientRect();
+// let initial_ball_coord = ball.getBoundingClientRect();
+// BALL DOESN'T START IN MIDDLE AND TRIGGERS POINTS BEFORE HITTING OUTER EDGE
 let initial_ball_coord = ball.getBoundingClientRect();
 let ball_coord = initial_ball_coord;
 let board_coord = board.getBoundingClientRect();
@@ -18,6 +20,9 @@ let dx = Math.floor(Math.random() * 4) + 3;
 let dy = Math.floor(Math.random() * 4) + 3;
 let dxd = Math.floor(Math.random() * 2);
 let dyd = Math.floor(Math.random() * 2);
+
+console.log('ball coord = ' + initial_ball_coord);
+console.log(initial_ball_coord);
 
 document.addEventListener('keydown', (e) => {
   if (e.key == 'Enter') {
@@ -95,6 +100,7 @@ function moveBall(dx, dy, dxd, dyd) {
     dx = Math.floor(Math.random() * 4) + 3;
     dy = Math.floor(Math.random() * 4) + 3;
   }
+  // SCORING
   if (
     ball_coord.left <= board_coord.left ||
     ball_coord.right >= board_coord.right
@@ -105,11 +111,9 @@ function moveBall(dx, dy, dxd, dyd) {
       score_1.innerHTML = +score_1.innerHTML + 1;
     }
     gameState = 'start';
-
     ball_coord = initial_ball_coord;
     ball.style = initial_ball.style;
     message.innerHTML = 'Press Enter to Play Pong';
-    message.style.left = 38 + 'vw';
     return;
   }
   ball.style.top = ball_coord.top + dy * (dyd == 0 ? -1 : 1) + 'px';

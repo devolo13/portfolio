@@ -5,7 +5,6 @@
 .popup{
   position: fixed;
   margin: 50px 0 0 0;
-  /* height: 10vh; */
   width: 30vw;
   left: 35vw;
 }
@@ -20,26 +19,33 @@
 .centerLine{
   width: 2px;
   height: 90vh;
-  position: absolute;
-  left: 50%;
+  position: fixed;
+  left: calc(50% - 1px);
   z-index: -1;
+}
+.container{
+  margin:0;
+  padding:0;
+  width: 100%;
 }
 .playspace{
   height: 90vh;
+  width: 90vw;
   align-items: center;
+  margin: 0 5vw 0 5vw;
 }
 .ball{
   height: 50px;
   width: 50px;
+  position: fixed;
+  left: calc(50% - 25px);
 }
 .paddle{
   height: 200px;
   width: 30px;
-  margin: 4px;
-}
-.bot{
-  margin-right: 0;
+  position: fixed;
 }
 .player{
-  margin-left: 0;
+  /* background-color: azure; */
+  right: 5vw;
 }
