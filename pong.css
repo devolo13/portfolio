@@ -1,0 +1,45 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+.popup{
+  position: fixed;
+  margin: 50px 0 0 0;
+  /* height: 10vh; */
+  width: 30vw;
+  left: 35vw;
+}
+.bScore{
+  position: fixed;
+  left: 30vw;
+}
+.pScore{
+  position: fixed;
+  right: 30vw;
+}
+.centerLine{
+  width: 2px;
+  height: 90vh;
+  position: absolute;
+  left: 50%;
+  z-index: -1;
+}
+.playspace{
+  height: 90vh;
+  align-items: center;
+}
+.ball{
+  height: 50px;
+  width: 50px;
+}
+.paddle{
+  height: 200px;
+  width: 30px;
+  margin: 4px;
+}
+.bot{
+  margin-right: 0;
+}
+.player{
+  margin-left: 0;
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="resources/default.bootstrap.min.css" id="bootstrapStylesheet">
+  <link rel="stylesheet" href="pong.css">
+  <title>Pong</title>
+</head>
+<body>
+  <div class="container mt-5 mb-5">
+    <div class="popup text-center bg-secondary">Press Enter to play</div>
+    <div class="overlay">
+        <h2 class="bScore mt-2">0</h2>
+        <h2 class="pScore mt-2">0</h2>
+      <div class="centerLine bg-secondary"></div>
+    </div>
+    <div class="playspace d-flex justify-content-between border" id="playspace">
+      <span class="bot paddle bg-info border"></span>
+      <span class="ball bg-warning border shadow"></span>
+      <span class="player paddle bg-info border"></span>
+    </div>
+  </div>
+  <script src="pong.js"></script>
+</body>
+</html>
