@@ -1,51 +1,54 @@
-*{
+* {
   margin: 0;
   padding: 0;
 }
-.popup{
+.container {
+  margin: 0;
+  padding: 0;
+}
+.instructions {
   position: fixed;
   margin: 50px 0 0 0;
   width: 30vw;
   left: 35vw;
 }
-.bScore{
+.bScore {
   position: fixed;
   left: 30vw;
 }
-.pScore{
+.pScore {
   position: fixed;
   right: 30vw;
 }
-.centerLine{
+.centerLine {
   width: 2px;
   height: 90vh;
   position: fixed;
   left: calc(50% - 1px);
   z-index: -1;
 }
-.container{
-  margin:0;
-  padding:0;
+.container {
+  margin: 0;
+  padding: 0;
   width: 100%;
 }
-.playspace{
+.playspace {
   height: 90vh;
   width: 90vw;
   align-items: center;
   margin: 0 5vw 0 5vw;
 }
-.ball{
+.ball {
   height: 50px;
   width: 50px;
   position: fixed;
   left: calc(50% - 25px);
 }
-.paddle{
+.paddle {
   height: 200px;
   width: 30px;
   position: fixed;
 }
-.player{
-  /* background-color: azure; */
-  right: 5vw;
+.player {
+  left: calc(95vw - 31px);
 }

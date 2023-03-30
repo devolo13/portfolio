@@ -6,11 +6,9 @@ let initial_ball = document.querySelector('.ball');
 let ball = document.querySelector('.ball');
 let score_1 = document.querySelector('.bScore');
 let score_2 = document.querySelector('.pScore');
-let message = document.querySelector('.popup');
+let message = document.querySelector('.instructions');
 let paddle_1_coord = paddle_1.getBoundingClientRect();
 let paddle_2_coord = paddle_2.getBoundingClientRect();
-// let initial_ball_coord = ball.getBoundingClientRect();
-// BALL DOESN'T START IN MIDDLE AND TRIGGERS POINTS BEFORE HITTING OUTER EDGE
 let initial_ball_coord = ball.getBoundingClientRect();
 let ball_coord = initial_ball_coord;
 let board_coord = board.getBoundingClientRect();
@@ -20,9 +18,6 @@ let dx = Math.floor(Math.random() * 4) + 3;
 let dy = Math.floor(Math.random() * 4) + 3;
 let dxd = Math.floor(Math.random() * 2);
 let dyd = Math.floor(Math.random() * 2);
-
-console.log('ball coord = ' + initial_ball_coord);
-console.log(initial_ball_coord);
 
 document.addEventListener('keydown', (e) => {
   if (e.key == 'Enter') {
@@ -39,23 +34,6 @@ document.addEventListener('keydown', (e) => {
     }
   }
   if (gameState == 'play') {
-    if (e.key == 'w') {
-      paddle_1.style.top =
-        Math.max(
-          board_coord.top,
-          paddle_1_coord.top - window.innerHeight * 0.06
-        ) + 'px';
-      paddle_1_coord = paddle_1.getBoundingClientRect();
-    }
-    if (e.key == 's') {
-      paddle_1.style.top =
-        Math.min(
-          board_coord.bottom - paddle_common.height,
-          paddle_1_coord.top + window.innerHeight * 0.06
-        ) + 'px';
-      paddle_1_coord = paddle_1.getBoundingClientRect();
-    }
-
     if (e.key == 'ArrowUp') {
       paddle_2.style.top =
         Math.max(
@@ -123,3 +101,35 @@ function moveBall(dx, dy, dxd, dyd) {
     moveBall(dx, dy, dxd, dyd);
   });
 }
+
+function botMovement() {
+  // how often the bot moves in milliseconds
+  setTimeout(botMovement, 300);
+  if (ball_coord.bottom + 30 >= paddle_1_coord.bottom) {
+    // if the ball is below the bot, move the bot down
+    if (paddle_1_coord.top + paddle_common.height + 75 >= board_coord.bottom) {
+      // don't let the bot go below the play area boarder
+      paddle_1.style.top = board_coord.bottom - paddle_common.height + 'px';
+      paddle_1_coord = paddle_1.getBoundingClientRect();
+    } else {
+      // move the bot down 75 pixels
+      paddle_1.style.top = paddle_1_coord.top + 75 + 'px';
+      paddle_1_coord = paddle_1.getBoundingClientRect();
+    }
+  } else if (ball_coord.top - 30 <= paddle_1_coord.top) {
+    // if the ball is above the bot, move the bot up
+    if (paddle_1_coord.top - 75 < board_coord.top) {
+      // don't let the bot go above the play area border
+      paddle_1.style.top = board_coord.top + 'px';
+      paddle_1_coord = paddle_1.getBoundingClientRect();
+    } else {
+      // move the bot up 75 pixels
+      paddle_1.style.top = paddle_1_coord.top - 75 + 'px';
+      paddle_1_coord = paddle_1.getBoundingClientRect();
+    }
+  } else {
+    return;
+  }
+}
+
+botMovement();
