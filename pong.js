@@ -19,6 +19,8 @@ let dy = Math.floor(Math.random() * 4) + 3;
 let dxd = Math.floor(Math.random() * 2);
 let dyd = Math.floor(Math.random() * 2);
 
+let speed = 3;
+
 document.addEventListener('keydown', (e) => {
   if (e.key == 'Enter') {
     gameState = gameState == 'start' ? 'play' : 'start';
@@ -49,6 +51,14 @@ document.addEventListener('keydown', (e) => {
           paddle_2_coord.top + window.innerHeight * 0.1
         ) + 'px';
       paddle_2_coord = paddle_2.getBoundingClientRect();
+    }
+    if (e.key == 'ArrowLeft' && speed > 1) {
+      speed --;
+      message.innerHTML = 'Game Started. Bot Speed = ' + speed;
+    }
+    if (e.key == 'ArrowRight' && speed < 10) {
+      speed ++;
+      message.innerHTML = 'Game Started. Bot Speed = ' + speed;
     }
   }
 });
@@ -104,7 +114,7 @@ function moveBall(dx, dy, dxd, dyd) {
 
 function botMovement() {
   // how often the bot moves in milliseconds
-  setTimeout(botMovement, 300);
+  setTimeout(botMovement, 1000/speed);
   if (ball_coord.bottom + 30 >= paddle_1_coord.bottom) {
     // if the ball is below the bot, move the bot down
     if (paddle_1_coord.top + paddle_common.height + 75 >= board_coord.bottom) {
