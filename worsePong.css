@@ -1,0 +1,67 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.container {
+  margin: 0;
+  padding: 0;
+}
+.instructions {
+  position: fixed;
+  margin: 100px 0 0 0;
+  width: 30vw;
+  left: calc(42% - 15vw);
+}
+.bScore {
+  position: fixed;
+  top: 100px;
+  left: 32vw;
+}
+.pScore {
+  position: fixed;
+  top: 100px;
+  left: 52vw;
+}
+.centerLine {
+  width: 2px;
+  height: 90vh;
+  position: fixed;
+  left: 42%;
+  z-index: -1;
+}
+.container {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+.playspace {
+  height: 78vh;
+  width: 66vw;
+  left: 4vw;
+  top: 10vh;
+  align-items: center;
+  margin: 0 5vw 0 5vw;
+  position: fixed;
+}
+.ball {
+  height: 50px;
+  width: 50px;
+  position: fixed;
+  left: calc(42% - 25px);
+}
+.paddle {
+  height: 200px;
+  width: 30px;
+  position: fixed;
+}
+.player {
+  left: calc(75vw - 31px);
+}
+#tvFrame{
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top:0;
+  left: 0;
+  z-index: 10;
+}
